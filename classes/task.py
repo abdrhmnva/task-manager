@@ -1,8 +1,9 @@
 class Task:
-    def __init__(self, tag, date, description, status):
+    def __init__(self, tag, date, time, task, status):
         self.__tag = tag
         self.__date = date
-        self.__description = description
+        self.__time = time
+        self.__task = task
         self.__status = status
 
     def get_tag(self):
@@ -15,10 +16,15 @@ class Task:
     def set_date(self, date):
         self.__date = date
 
-    def get_description(self):
-        return self.__description
-    def set_description(self, description):
-        self.__description = description
+    def get_time(self):
+        return self.__time
+    def set_time(self, time):
+        self.__time = time
+
+    def get_task(self):
+        return self.__task
+    def set_task(self, description):
+        self.__task = description
 
     def get_status(self):
         return self.__status
@@ -26,4 +32,4 @@ class Task:
         self.__status = status
 
     def __str__(self):
-        return f"Tag: {self.__tag}, Date: {self.__date}, Description: {self.__description}, Status: {self.__status}"
+        return f"Tag: {self.__tag}, Date: {self.__date}, Task: {self.__task}, Status: {self.__status}"
