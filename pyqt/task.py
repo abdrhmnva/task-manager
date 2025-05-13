@@ -12,19 +12,38 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(730, 532)
+        MainWindow.resize(764, 651)
         MainWindow.setMinimumSize(QtCore.QSize(0, 0))
         MainWindow.setMaximumSize(QtCore.QSize(1470, 829))
-        MainWindow.setStyleSheet("background-color: rgb(255, 255, 255);")
+        MainWindow.setStyleSheet("background-color: rgb(50, 50, 50);")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.calendarWidget_2 = QtWidgets.QCalendarWidget(parent=self.centralwidget)
-        self.calendarWidget_2.setGeometry(QtCore.QRect(30, 20, 671, 361))
+        self.calendarWidget_2.setGeometry(QtCore.QRect(50, 70, 671, 361))
         self.calendarWidget_2.setStyleSheet("QCalendarWidget {\n"
 "    background-color: #1e1e1e;\n"
 "    color: #dcdcdc;\n"
 "    border: 1px solid #444;\n"
 "    selection-background-color: #00ff88;\n"
+"}\n"
+"\n"
+"QCalendarWidget QWidget#qt_calendar_navigationbar {\n"
+"    background-color: #2b2b2b;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QCalendarWidget QToolButton {\n"
+"    color: white;\n"
+"    background-color: #5e4b8b;\n"
+"    font-weight: bold;\n"
+"    font-size: 16px;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    margin: 2px;\n"
+"}\n"
+"\n"
+"QCalendarWidget QToolButton::menu-indicator {\n"
+"    image: none;  /* убираем стрелочку */\n"
 "}\n"
 "\n"
 "QCalendarWidget QAbstractItemView {\n"
@@ -33,18 +52,19 @@ class Ui_MainWindow(object):
 "    selection-color: black;\n"
 "    gridline-color: #333;\n"
 "    color: #dcdcdc;\n"
+"    font-size: 14px;\n"
 "}\n"
 "\n"
-"QCalendarWidget QWidget#qt_calendar_navigationbar {\n"
-"    background-color: #2b2b2b;\n"
-"    color: white;\n"
+"QCalendarWidget QHeaderView {\n"
+"    background-color: #1e1e1e;\n"
 "}\n"
 "\n"
-"QToolButton {\n"
-"    color: white;\n"
-"    background: transparent;\n"
-"    border: none;\n"
+"QCalendarWidget QHeaderView::section {\n"
+"    color: #bbbbbb;\n"
+"    background-color: #1e1e1e;\n"
 "    font-weight: bold;\n"
+"    border: none;\n"
+"    padding: 4px;\n"
 "}\n"
 "")
         self.calendarWidget_2.setSelectionMode(QtWidgets.QCalendarWidget.SelectionMode.SingleSelection)
@@ -53,12 +73,13 @@ class Ui_MainWindow(object):
         self.calendarWidget_2.setNavigationBarVisible(True)
         self.calendarWidget_2.setDateEditEnabled(False)
         self.calendarWidget_2.setObjectName("calendarWidget_2")
-        self.pushButton_2 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(510, 410, 191, 51))
-        self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.pushButton_2.setStyleSheet("QPushButton {\n"
+        self.pushButton_5 = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton_5.setGeometry(QtCore.QRect(620, 10, 131, 41))
+        self.pushButton_5.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.pushButton_5.setStyleSheet("QPushButton {\n"
 "    background-color: #5e4b8b;\n"
 "    color: white;\n"
+"    border: 2px solid #3e2f5c; /* <–– добавлена граница */\n"
 "    border-radius: 12px;\n"
 "    padding: 8px 20px;\n"
 "    font-size: 16px;\n"
@@ -67,58 +88,60 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton:hover {\n"
 "    background-color: #7a62b3;\n"
+"    border-color: #5a4691; /* можно поменять цвет при наведении */\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
 "    background-color: #483370;\n"
+"    border-color: #2f214f; /* можно поменять цвет при нажатии */\n"
 "}\n"
 "")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_3 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(270, 410, 191, 51))
-        self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.pushButton_3.setStyleSheet("QPushButton {\n"
-"    background-color: #5e4b8b;\n"
-"    color: white;\n"
-"    border-radius: 12px;\n"
-"    padding: 8px 20px;\n"
-"    font-size: 16px;\n"
+        self.pushButton_5.setObjectName("pushButton_5")
+        self.label = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(-40, -5, 831, 61))
+        self.label.setStyleSheet("background-color: #5e4b8b;")
+        self.label.setText("")
+        self.label.setObjectName("label")
+        self.tableWidget = QtWidgets.QTableWidget(parent=self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(50, 460, 671, 121))
+        self.tableWidget.setStyleSheet("QTableWidget {\n"
+"    background-color: #1e1e1e;\n"
+"    color: #e0e0e0;\n"
+"    gridline-color: #444;\n"
+"    border: 1px solid #333;\n"
+"    font-size: 14px;\n"
+"    selection-background-color: #5e4b8b;\n"
+"    selection-color: white;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #2b2b2b;\n"
+"    color: #ffffff;\n"
 "    font-weight: bold;\n"
+"    padding: 5px;\n"
+"    border: 1px solid #444;\n"
 "}\n"
 "\n"
-"QPushButton:hover {\n"
-"    background-color: #7a62b3;\n"
+"QTableWidget QTableCornerButton::section {\n"
+"    background-color: #2b2b2b;\n"
+"    border: 1px solid #444;\n"
 "}\n"
 "\n"
-"QPushButton:pressed {\n"
-"    background-color: #483370;\n"
+"QTableWidget::item {\n"
+"    padding: 4px;\n"
+"    border: none;\n"
 "}\n"
 "")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.pushButton_4 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(30, 410, 191, 51))
-        self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.pushButton_4.setStyleSheet("QPushButton {\n"
-"    background-color: #5e4b8b;\n"
-"    color: white;\n"
-"    border-radius: 12px;\n"
-"    padding: 8px 20px;\n"
-"    font-size: 16px;\n"
-"    font-weight: bold;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #7a62b3;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #483370;\n"
-"}\n"
-"")
-        self.pushButton_4.setObjectName("pushButton_4")
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
+        self.label.raise_()
+        self.calendarWidget_2.raise_()
+        self.pushButton_5.raise_()
+        self.tableWidget.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 730, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 764, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
@@ -131,6 +154,4 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton_2.setText(_translate("MainWindow", "delete"))
-        self.pushButton_3.setText(_translate("MainWindow", "edit"))
-        self.pushButton_4.setText(_translate("MainWindow", "add"))
+        self.pushButton_5.setText(_translate("MainWindow", "Sign up"))
