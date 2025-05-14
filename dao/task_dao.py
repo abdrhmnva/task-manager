@@ -1,7 +1,7 @@
 from dao.BaseDao import Dao
 import sys
 
-sys.path.append("/Users/argenkulzhanov/Desktop/Designer/nursezim/classes")
+sys.path.append("/nursezim/classes")
 from classes.task import Task
 
 class TaskDAO(Dao):
@@ -36,6 +36,8 @@ class TaskDAO(Dao):
         """
         self._cursor.execute(query, (tag, date, time, description, status, original_description, original_date))
         self._connection.commit()
+
+        return True
 
     def get_tasks_by_date(self, date):
         query = "SELECT * FROM tasks WHERE date = ?"
