@@ -1,6 +1,5 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
-
 class Ui_EventWindow(object):
     def setupUi(self, EventWindow):
         EventWindow.setObjectName("EventWindow")
@@ -50,12 +49,26 @@ class Ui_EventWindow(object):
         self.tableWidget = QtWidgets.QTableWidget(parent=self.centralwidget)
         self.tableWidget.setStyleSheet("color: rgb(0, 0, 0);")
         self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(3)
+        self.tableWidget.setColumnCount(3)  # 3 столбца
         self.tableWidget.setRowCount(0)
         self.tableWidget.verticalHeader().setVisible(False)
-        self.tableWidget.horizontalHeader().setVisible(False)
+        self.tableWidget.horizontalHeader().setVisible(True)  # Показываем заголовки
+
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
+
+        # Устанавливаем ResizeMode для всех столбцов
+        header = self.tableWidget.horizontalHeader()
+        
+        # Первые две колонки — по содержимому, но ограничиваем их ширину
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+        self.tableWidget.setColumnWidth(0, 100)
+        self.tableWidget.setColumnWidth(1, 100)
+
+        # Третья колонка (description) — растягивается
+        header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeMode.Stretch)
+
         self.horizontalLayout.addWidget(self.tableWidget)
 
         # Layout для кнопок справа
